@@ -1,22 +1,7 @@
-# def longest_subs(s):
-#     subs_long = ('', 0)
-#     for i, char in enumerate(s):
-#         chars = ''
-#         c = 0
-#         while i <= len(s) - 1:
-#             char = s[i]
-#             if char not in chars:
-#                 chars += char
-#                 c += 1
-#                 i += 1
-#                 if c > subs_long[-1]:
-#                     subs_long = (chars, c)
-#             else:
-#                 break
-#
-#
-#     return subs_long
+## There are a lot of ways to solve this problem. the difference between them relies on time and space complexity
+## the two last ways are the best.
 
+# 1/-----------------------------------------------------------
 # def longest_subs(s):
 #     m = 1
 #     if len(s) <= 1:
@@ -39,8 +24,10 @@
 #             if j == len(s) - 1:
 #                 break
 #     return m
+#--------------------------------------------------------------
 
 
+# 2/-----------------------------------------------------------
 # def longest_subs(s):
 #     l = len(s)
 #     for i in range(l, -1, -1):
@@ -55,9 +42,31 @@
 #             if bol:
 #                 return i, chars
 #             j += 1
+#--------------------------------------------------------------
 
 
-## the same algorith with the best method.
+# 3/-----------------------------------------------------------
+# def longest_subs(s):
+#     subs_long = ('', 0)
+#     for i, char in enumerate(s):
+#         chars = ''
+#         c = 0
+#         while i <= len(s) - 1:
+#             char = s[i]
+#             if char not in chars:
+#                 chars += char
+#                 c += 1
+#                 i += 1
+#                 if c > subs_long[-1]:
+#                     subs_long = (chars, c)
+#             else:
+#                 break
+#
+#
+#     return subs_long
+#-------------------------------------------------------------
+
+# 4/-----------------------------------------------------------
 ## the difference here is that used list() instead set()
 # def longest_subs(s):
 #     long_sub = []
@@ -77,8 +86,9 @@
 #
 # l_subs = longest_subs("abcabcbb")
 # print(l_subs)
+#-----------------------------------------------------------
 
-## My best code.
+# 5/-----------------------------------------------------------
 # def longest_subs(s):
 #     long_sub = set()
 #     m = 0
@@ -102,8 +112,9 @@
 #
 # l_subs = longest_subs("abcdbfal")
 # print(l_subs)
+#-----------------------------------------------------------
 
-
+# 6/-----------------------------------------------------------
 ## The solution of the youtuber
 # def longest_subs(s):
 #     long_sub = set()
@@ -124,8 +135,9 @@
 #
 # l_subs = longest_subs("abcdbfal")
 # print(l_subs)
+#-----------------------------------------------------------
 
-
+# 7/-----------------------------------------------------------
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         long_sub = set()
