@@ -1,77 +1,28 @@
+# method 1
+def median_of_two_sorted_array(nums1, nums2):
+    s = []
+    i = 0
+    j = 0
+    k = (len(nums1) + len(nums2)) // 2 + 1
+    while (i < len(nums1) or j < len(nums2)) and len(s) < k:
+        if i < len(nums1) and j < len(nums2):
+            if nums1[i] <= nums2[j]:
+                s.append(nums1[i])
+                i += 1
+            else:
+                s.append(nums2[j])
+                j += 1
+        elif i < len(nums1):
+            s.append(nums1[i])
+            i += 1
+        else:
+            s.append(nums2[j])
+            j += 1
+    median = s[-1] if (len(nums1) + len(nums2)) % 2 != 0 else (s[-2] + s[-1]) / 2
+    return float(median)
 
-# def median_of_two_sorted_array(nums1, nums2):
-#     s = []
-#     i = 0
-#     j = 0
-#     while i < len(nums1) or j < len(nums2):
-#         if i < len(nums1) and j < len(nums2):
-#             if nums1[i] <= nums2[j]:
-#                 s.append(nums1[i])
-#                 i += 1
-#             else:
-#                 s.append(nums2[j])
-#                 j += 1
-#         elif i < len(nums1):
-#             s.append(nums1[i])
-#             i += 1
-#         else:
-#             s.append(nums2[j])
-#             j += 1
-#     median = s[len(s) // 2] if len(s) % 2 != 0 else (s[len(s) // 2 - 1] + s[len(s) // 2]) / 2
-#     return s, float(median)
-# def median_of_two_sorted_array(nums1, nums2):
-#     s = []
-#     i = 0
-#     j = 0
-#     while i < len(nums1) and j < len(nums2):
-#         if nums1[i] <= nums2[j]:
-#             s.append(nums1[i])
-#             i += 1
-#         else:
-#             s.append(nums2[j])
-#             j += 1
-#     while i < len(nums1):
-#         s.append(nums1[i])
-#         i += 1
-#     while j < len(nums2):
-#         s.append(nums2[j])
-#         j += 1
-#     median = s[len(s) // 2] if len(s) % 2 != 0 else (s[len(s) // 2 - 1] + s[len(s) // 2]) / 2
-#     return s, float(median)
-#
-#
-# s1 = [1, 3]
-# s2 = [2]
-# print(median_of_two_sorted_array(s1, s2))
-#
 
-# def median_of_two_sorted_array(nums1, nums2):
-#     s = []
-#     i = 0
-#     j = 0
-#     k = (len(nums1) + len(nums2)) // 2 + 1
-#     while (i < len(nums1) or j < len(nums2)) and len(s) < k:
-#         if i < len(nums1) and j < len(nums2):
-#             if nums1[i] <= nums2[j]:
-#                 s.append(nums1[i])
-#                 i += 1
-#             else:
-#                 s.append(nums2[j])
-#                 j += 1
-#         elif i < len(nums1):
-#             s.append(nums1[i])
-#             i += 1
-#         else:
-#             s.append(nums2[j])
-#             j += 1
-#     median = s[-1] if (len(nums1) + len(nums2)) % 2 != 0 else (s[-2] + s[-1]) / 2
-#     return float(median)
-#
-#
-# s1 = [1, 3]
-# s2 = [2]
-# print(median_of_two_sorted_array(s1, s2))
-
+# method 2
 def median_of_two_sorted_array(nums1, nums2):
     total = len(nums1) + len(nums2)
     half = total // 2
@@ -96,10 +47,6 @@ def median_of_two_sorted_array(nums1, nums2):
             r -= 1
         else:
             l += 1
-
-s1 = [1, 3]
-s2 = [2]
-print(median_of_two_sorted_array(s1, s2))
 
 
 
