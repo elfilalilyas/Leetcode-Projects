@@ -1,45 +1,4 @@
-def reverseInteger(x):
-    num = abs(x)
-    if num < 10:
-        return x
-    str_num = 0
-    while True:
-        rest = num % 10
-        str_num = str_num * 10 + rest
-        num = num // 10
-        if num // 10 == 0:
-            str_num = str_num*10 + num % 10
-            break
-    x = str_num if x > 0 else -str_num
-    if x < -2147483648 or x > 2147483647:
-        return 0
-    else:
-        return x
-
-
-def reverseInteger(x):
-    num = abs(x)
-    if num < 10:
-        return x
-    str_num = str(num)
-    l, r = 0, len(str_num) - 1
-    left = ''
-    right = ''
-    while l < r:
-        left += str_num[r]
-        right = str_num[l] + right
-        l += 1
-        r -= 1
-    if l == r:
-        str_num = int(left + str_num[l] + right)
-    else:
-        str_num = int(left + right)
-    x = str_num if x > 0 else -str_num
-    if x < -2147483648 or x > 2147483647:
-        return 0
-    else:
-        return x
-
+# Method 1
 def reverse(x):
     num = abs(x)
     if num < 10:
@@ -60,24 +19,8 @@ def reverse(x):
         return x
 import math
 
+# Method 2
 def reverseInteger(num):
-    # num = abs(x)
-    # if num < 10:
-    #     return x
-    # res_num = 0
-    # while num // 10 != 0:
-    #     rest = num % 10
-    #     res_num = res_num * 10 + rest
-    #     num = num // 10
-    # # res_num = res_num*10 + num % 10
-    # if res_num > 214748364:
-    #     return 0
-    # if res_num == 214748364 and num > 7:
-    #     if x > 0 or num > 8 and x < 0:
-    #         return 0
-    # if res_num == 214748364 and num < 7:
-    #     return res_num*10 + num if x > 0 else -(res_num*10 + num)
-    # return res_num*10 + num if x > 0 else -(res_num*10 + num)
     res_num = 0
     while num != 0:
         rest = int(math.fmod(num, 10))
@@ -90,6 +33,4 @@ def reverseInteger(num):
     return res_num
 
 
-number = 8463847412
-print(reverseInteger(number))
 
